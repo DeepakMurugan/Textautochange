@@ -1,0 +1,136 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+<div class="container" id="scrollingRows">
+  <div class="row">
+    <h2 class="svision"><span>Our</span> Core</h2>
+    <p class="paras">Through  our  technology,  we  aim  to  contribute  to  the reduction  of  food
+        waste and promote  a  more  sustainable food system in the agri-horticultural based industries by transforming fruits,
+       vegetables and other produce into value-added dehydrated foods, aseptically processed foods & frozen food products with extended shelf life.
+        We are helping agripreneurs to  ensure  that  more nutritious and quality  food  reaches consumers.</p>
+
+      
+  </div>
+  <div class="row">
+    <h2 class="svision"><span>Our</span> Vision</h2>
+    <p class="paras">To produce value-added food products by preventing Post Harvest Loss and <br> improving the livelihood of our Indian farmers​.</p>
+  </div>
+  <div class="row">
+    <h2 class="svision"><span>Our</span> Mission</h2>
+    <p class="paras">To reduce the Indian Post harvest loss volume <br>at least by 3% in the  next 5 Years</p>
+  </div>
+</div>
+
+<script>
+  const container = document.querySelector('#scrollingRows');
+  const rows = container.querySelectorAll('.row');
+  let index = 0;
+  let timeoutId;
+
+  function scrollRows() {
+    rows.forEach(row => row.style.display = 'none');
+    rows[index].style.display = 'flex';
+
+    timeoutId = setTimeout(() => {
+      rows[index].style.display = 'none';
+      index = (index + 1) % rows.length;
+      scrollRows();
+    }, 2000); // Change row every 5 seconds
+  }
+
+  container.addEventListener('mouseover', () => {
+    clearTimeout(timeoutId); // Pause scrolling on hover
+  });
+
+  container.addEventListener('mouseout', () => {
+    scrollRows(); // Resume scrolling on hover out
+  });
+
+  scrollRows();
+</script>
+
+<style>
+  /* Your existing CSS styles */
+  /* ... */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    width: 100%;
+    height:  250px;
+    overflow: hidden;
+    background-color: #BAF6EF;
+  }
+
+  .row {
+    display: flex;
+    padding: 10px;
+    height: 300px; /* Set the height for each row */
+    align-items: center;
+  }
+
+  h2,
+  p {
+    margin: 0;
+  }
+
+  h2 {
+    flex: 1;
+  }
+
+  p {
+    flex: 2;
+  }
+  .svision{
+  width:35%;
+      font-family: 'Montserrat', sans-serif; 
+      font-size: 75px;
+      font-weight: 800;
+      line-height: 128px;
+      letter-spacing: 0em;
+       text-align: left;
+       color: #04215D;
+  }
+       .svision span{color: #19B39E;}
+  .paras{
+  width:65%;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+         font-weight: 600;
+       line-height: 34px;
+       letter-spacing: 0em;
+       text-align: left;
+       color: #333333;
+       padding-left: 20px;
+
+  }
+
+  @media(max-width:1599px){
+  .svisionh,.svision{font-size:75px}
+  }
+
+  @media(max-width:1439px){
+
+  }
+
+  @media(max-width:1365px){
+
+  }
+
+  @media(max-width:1279px){
+  .svisionh,.svision{font-size:70px}
+  }
+
+  @media(max-width:767px){
+      .row{flex-direction:column}
+      .svision,.paras{width:100%}
+
+  }
+
+  @media(max-width:575px){
+
+
+  }
+</style>
